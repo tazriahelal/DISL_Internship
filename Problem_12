@@ -1,0 +1,34 @@
+//Problem Link: https://www.hackerrank.com/challenges/java-strings-introduction/problem?isFullScreen=true
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        
+        Scanner scan=new Scanner(System.in);
+        String A=scan.next();
+        String B=scan.next();
+        /* Enter your code here. Print output to STDOUT. */
+        int i = 0;
+      for(char c: A.toCharArray()) {
+         i++;
+      }
+      int j = 0;
+      for(char c: B.toCharArray()){
+          j++;
+      }
+     System.out.println(i+j);
+     if(A.compareTo(B)>0){
+         System.out.println("Yes");
+     }
+     else{
+         System.out.println("No");
+     }
+     System.out.println(A.substring(0,1).toUpperCase()+A.substring(1,i)+" "+B.substring(0,1).toUpperCase()+B.substring(1,j));
+     
+    }
+}
+
+
+
