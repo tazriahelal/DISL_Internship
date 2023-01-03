@@ -1,0 +1,32 @@
+Problem Link: https://www.hackerrank.com/challenges/java-string-tokens/problem?isFullScreen=true
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        
+        Scanner scan = new Scanner(System.in);
+        String str [] = scan.nextLine().split("[ \"!,?._'@\". ]");
+        
+        int len = str.length;        
+        
+        for(int i = 0; i < str.length; i++){
+            if(str[i].compareTo("") == 0){
+                len = len - 1;
+            }
+           }
+        System.out.println(len);
+       
+       for(int i = 0; i < str.length; i++){
+            if(str[i].compareTo("") != 0){
+                System.out.println(str[i]);
+            }
+       }
+   
+   }
+}
