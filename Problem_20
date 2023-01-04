@@ -1,0 +1,16 @@
+Problem Link: https://www.hackerrank.com/challenges/java-primality-test/problem?isFullScreen=true&h_r=next-challenge&h_v=zen
+
+import java.util.Scanner;
+import java.math.BigInteger;
+
+
+public class Solution {
+    public static void main(String[] args) {
+       
+        Scanner scan = new Scanner(System.in);
+        BigInteger num = scan.nextBigInteger();
+        scan.close();
+       
+        System.out.println(num.isProbablePrime(10) ? "prime" : "not prime");
+    }
+}
