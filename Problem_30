@@ -1,0 +1,26 @@
+Problem Link: https://www.hackerrank.com/challenges/java-generics/problem?isFullScreen=true&h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen
+import java.io.*;
+import java.util.*;
+class Generics{
+    public <T> void genericsMethod(T[] array){
+        //print
+        for( T element : array){
+            System.out.println(element);
+        }
+    }
+}
+public class Solution {
+
+    public static void main(String[] args) {
+      
+      Generics gen = new Generics();
+      
+      Integer[] intArray = {1,2,3};
+      String[] stringArray = {"Hello", "World"};
+      
+      gen.genericsMethod(intArray);
+      gen.genericsMethod(stringArray);
+      
+      
+    }
+}
