@@ -1,0 +1,51 @@
+Problem Link: https://www.hackerrank.com/challenges/java-stack/problem?isFullScreen=true&h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen
+
+import java.util.*;
+class Solution{
+	
+	public static void main(String []argh)
+	{
+		Scanner sc = new Scanner(System.in);
+		
+		while (sc.hasNext()) {
+			 String input=sc.next();
+             int len = input.length();
+             if(len == 0){
+                 System.out.println("true");
+             }else if(len % 2 != 0){
+                 System.out.println("false");
+             }
+             else{
+                Stack<Character> s = new Stack();
+                char ch,temp,i;
+                for (i = 0; i < len; i++) {
+                    ch = input.charAt(i);
+                    if(ch == '[' || ch == '{' || ch == '(' ){
+                        s.push(ch);
+                    }
+                    else {
+                        if(s.isEmpty()) {
+                            break;
+                        }
+                        else {
+                            temp = s.peek();
+                            if(ch == ']' && temp == '[' || ch == '}' &&temp == '{' || ch == ')' && temp == '(' ){
+                                s.pop();
+                            }
+                            else {
+                                break;
+                            }
+                        }
+                    }
+                }
+                if(s.isEmpty() && i == len) 
+                    System.out.println("true"); 
+                else 
+                    System.out.println("false");
+                
+            }
+        }
+    }
+}       
+
+
