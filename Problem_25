@@ -1,0 +1,35 @@
+Problem Link: https://www.hackerrank.com/challenges/java-list/problem?isFullScreen=true&h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+                Scanner scan=new Scanner(System.in);
+                int num = scan.nextInt();
+                List<Integer> lst = new ArrayList<>();
+                for(int i=0; i<num; i++)
+                {
+                    lst.add(scan.nextInt());
+                }
+                int q = scan.nextInt();
+                for(int i=0; i<q; i++)
+                {
+                    switch(scan.next())
+                    {
+                        case "Insert":
+                            lst.add(scan.nextInt(),scan.nextInt());
+                            break;
+                        case "Delete":
+                            lst.remove(scan.nextInt());
+                    }
+                }
+                for(int element : lst)
+                {
+                    System.out.print(element+" ");
+                }
+            
+            }
+        }
