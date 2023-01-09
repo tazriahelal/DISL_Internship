@@ -1,0 +1,61 @@
+Problem Link: https://www.hackerrank.com/challenges/java-vistor-pattern/problem?isFullScreen=true
+//incomplete
+import java.io.*;
+import java.util.*;
+import java.util.regex.*;
+
+enum Color{
+            RED, GREEN;
+        }
+abstract class Tree{
+    private int value;
+    private Color color;
+    private int depth;
+    
+    public Tree(int value, Color color, int depth){
+        this.value = value;
+        this.color = color;
+        this.depth = depth;
+    }
+    
+    public int getValue(){
+        return value;
+    }
+    
+    public Color getColor(){
+        return color;
+    }
+    
+    public int getDepth(){
+        return depth;
+    }
+    
+    public abstract void accept(TreeVis visitor);
+    
+}
+
+class TreeNode extends Tree{
+    
+    private ArrayList<Tree> child = new ArrayList<>();
+    
+    public TreeNode(int value, Color color, int depth){
+        super(value, color, depth);
+    }
+    
+    public void accept(TreeVis visitor){
+        visitor.visitNode(this);
+        
+        for( Tree child : child ){
+            child.accept(visitor);
+        }
+    }
+    public void addchild(Tree child) {
+        child.add(child);
+    }
+}
+
+public class Solution {
+    public static void main(String[] args) {
+        
+    }
+}
