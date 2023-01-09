@@ -1,0 +1,59 @@
+Problem Link: https://www.hackerrank.com/challenges/prime-checker/problem?isFullScreen=true
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.util.regex.*;
+import java.lang.reflect.*;
+import static java.lang.System.in;
+
+class Prime {
+    void checkPrime(int... arg) {
+        for( int j = 0; j <= arg.length; j++){
+            int count = 0;
+            for( int i = 2; i <= arg[j]; j++ ){
+                if(arg[j] % i == 0){
+                    count++;
+                }
+            }
+        if( count == 0 && arg[j] != 1 ){
+            System.out.print(arg[j]+ " ");
+        }
+        }
+        System.out.println();
+        
+    }
+}
+
+public class Solution {
+
+    public static void main(String[] args) {
+       
+       try{
+        
+            BufferedReader br=new BufferedReader(new InputStreamReader(in));
+            
+            //for(int i = 0; i < 5; i++){
+            int num1 = Integer.parseInt(br.readLine());
+            int num2 = Integer.parseInt(br.readLine());
+            int num3 = Integer.parseInt(br.readLine());
+            int num4 = Integer.parseInt(br.readLine());
+            int num5 = Integer.parseInt(br.readLine());
+            
+            Prime obj = new Prime(); 
+            obj.checkPrime( num1 );
+            obj.checkPrime( num1, num2 );
+            obj.checkPrime( num1, num2, num3 );
+            obj.checkPrime( num1, num2, num3, num4 );
+            obj.checkPrime( num1, num2, num3, num4, num5 );
+            
+            Method[] methods = Prime.class.getDeclaredMethods();
+           
+       }
+        catch(Exception e)
+            {
+                System.out.println(e);
+            }
+        
+    }
+}
