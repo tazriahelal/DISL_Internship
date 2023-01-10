@@ -1,0 +1,23 @@
+Problem Link: https://www.hackerrank.com/challenges/java-biginteger/problem?isFullScreen=true&h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen
+
+import java.io.*;
+import java.util.*;
+import java.math.BigInteger;  
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        BigInteger bigInt1 = new BigInteger(scan.next());
+        BigInteger bigInt2 = new BigInteger(scan.next());
+
+        BigInteger  bigInt3, bigInt4;
+        
+        bigInt3 = bigInt1.add( bigInt2 );
+        bigInt4 = bigInt1.multiply( bigInt2 );
+        
+        System.out.println( bigInt3 );
+        System.out.println( bigInt4 );
+    }
+}
+
