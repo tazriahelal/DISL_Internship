@@ -1,0 +1,26 @@
+Problem Link: https://www.hackerrank.com/challenges/java-md5/problem?isFullScreen=true
+
+import java.io.*;
+import java.util.*;
+import java.security.MessageDigest;
+import java.util.Scanner;
+
+public class Solution {
+    public static void main(String[] args){
+        /* Read and save the input String */
+        Scanner scan = new Scanner(System.in);
+        String str = scan.next();
+        scan.close();
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            md.update(str.getBytes());
+            // return bytesToHex
+            byte[] digest = md.digest();
+            for (byte b : digest) {
+                System.out.printf("%02x", b);
+            }
+        } catch (Exception ex) {
+            throw new RuntimeException(ex);
+        }
+    }
+}
