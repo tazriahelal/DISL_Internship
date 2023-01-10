@@ -1,0 +1,60 @@
+Problem Link: https://www.hackerrank.com/challenges/java-bitset/problem?isFullScreen=true
+
+import java.util.Scanner;
+import java.util.BitSet;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int N = scan.nextInt();
+        int M = scan.nextInt();
+        BitSet BitSet1 = new BitSet(N);
+        BitSet BitSet2 = new BitSet(N);
+        while (M -- > 0) {
+            String str = scan.next();
+            int num1      = scan.nextInt();
+            int num2      = scan.nextInt();
+            switch (str) {
+                case "AND":
+                    if (num1  == 1) {
+                        BitSet1.and(BitSet2);
+                    } else {
+                       BitSet2.and(BitSet1);
+                    }
+                    break;
+                case "OR":
+                    if (num1  == 1) {
+                        BitSet1.or( BitSet2 );
+                    } else {
+                        BitSet2.or(BitSet1);
+                    }
+                    break;
+                case "XOR":
+                    if (num1  == 1) {
+                        BitSet1.xor(BitSet2);
+                    } else {
+                        BitSet2.xor(BitSet1);
+                    }
+                    break;
+                case "FLIP":
+                    if (num1  == 1) {
+                       BitSet1.flip(num2);
+                    } else {
+                        BitSet2.flip(num2);
+                    }
+                    break;
+                case "SET":
+                    if (num1  == 1) {
+                        BitSet1.set(num2);
+                    } else {
+                        BitSet2.set(num2);
+                    }
+                    break;
+                default:
+                    break;
+            }
+            System.out.println(BitSet1.cardinality() + " " + BitSet2.cardinality());
+        }
+        scan.close();
+    }
+}
