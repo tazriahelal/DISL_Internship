@@ -1,4 +1,5 @@
-Problem Link: https://www.hackerrank.com/challenges/java-datatypes/problem?isFullScreen=true
+//Problem Link: https://www.hackerrank.com/challenges/java-datatypes/problem?isFullScreen=true
+
 import java.util.Scanner;
 
 public class Solution {
