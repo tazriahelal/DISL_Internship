@@ -1,4 +1,4 @@
-Problem Link: https://www.hackerrank.com/challenges/java-singleton/problem
+//Problem Link: https://www.hackerrank.com/challenges/java-singleton/problem
 
 import java.io.*;
 import java.util.*;
