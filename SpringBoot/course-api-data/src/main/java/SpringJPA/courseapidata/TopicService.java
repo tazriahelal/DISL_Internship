@@ -1,6 +1,7 @@
 package SpringJPA.courseapidata;
 
 import SpringJPA.courseapidata.requests.AddTopicRequest;
+import SpringJPA.courseapidata.requests.DeleteTopicRequest;
 import SpringJPA.courseapidata.requests.UpdateTopicRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,19 +24,23 @@ public class TopicService {
     ));
 
     public List<Topic> getAllTopics() {
-        List<Topic> topics = new ArrayList<>();
-        topicRepository.findAll().forEach(topics::add);
-        return topics;
+        /*List<Topic> topics = new ArrayList<>();
+        topicRepository.findAll().forEach(topics :: add);
+        return topics;*/
+        return topicRepository.findAll();
+
     }
 
     public Topic getTopicById(String id) {
-        return topics.stream().filter(topicId -> topicId.getId().equals(id)).
-                findFirst().orElse(null);
+        return topicRepository.findById(id).orElse(null);
+//        return topics.stream().filter(topicId -> topicId.getId().equals(id)).
+//                findFirst().orElse(null);
     }
 
-    public List<Topic> getTopicsByName(String name) {
-        return topics.stream().filter(topicName -> topicName.getName().contains(name)).
-                collect(Collectors.toList());
+    public Topic getTopicsByName(String name) {
+        /*return topics.stream().filter(topicName -> topicName.getName().contains(name)).
+                collect(Collectors.toList());*/
+        return topicRepository.findTopByName(name);
     }
 
     /*public Topic addTopic(Topic topic) {
@@ -48,12 +53,12 @@ public class TopicService {
         topicRepository.save(topic);
      }*/
 
-    public Topic addTopic(Topic topic, AddTopicRequest request){
-        topic.setName(request.getName());
-        topic.setDescription(request.getDescription());
-        topic.setId(request.getId());
-
-        return topic;
+    public Topic addTopic(AddTopicRequest request){
+        Topic topic = new Topic();
+       topic.setName(request.getName());
+       topic.setDescription(request.getDescription());
+       topic.setId(request.getId());
+       return topicRepository.save(topic);
     }
     public Topic updateTopic(Topic topic, UpdateTopicRequest request) {
         topic.setName(request.getName());
@@ -64,13 +69,13 @@ public class TopicService {
                 findFirst()
                 .ifPresent(t -> topics.set(topics.indexOf(t), topic));
 
-        return topic;
+        return topicRepository.save(topic);
     }
 
     public Topic deleteTopic(String id) {
-        topics.removeIf(t -> t.getId().equals(id));
+        //topics.removeIf(t -> t.getId().equals(id));
         //return id;
-        return null;
+        return topicRepository.delete(id);
     }
 
 
